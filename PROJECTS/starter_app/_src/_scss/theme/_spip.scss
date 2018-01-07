@@ -1,0 +1,375 @@
+/* # Spip Styles
+
+Spip CMS styles
+
+Styleguide theme.spip
+*/
+
+
+
+/* # Spip Forms
+
+
+
+Markup:
+<div class="formulaire_spip">
+	<form action="#" method="post">
+        <p class="reponse_formulaire reponse_formulaire_ok">Réponse du Formulaire : Success </p>
+        <p class="reponse_formulaire reponse_formulaire_erreur">Réponse du Formulaire : Error </p>
+		<fieldset>
+			<legend>Lettre d'information</legend>
+			<p>Abonnez-vous pour rester informé(e) : vous recrevrez nos dernières nouveautés par courrier électronique.</p>
+			<ul>
+				<li class="courriel obligatoire">
+					<label for="courriel">Courriel<em> (Obligatoire)</em></label>
+					<input type="text" class="text" name="courriel" id="courriel" value="adresse@email.fr" />
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>Informations personnelles</legend>
+			<ul>
+				<li class="editer_civilite">
+					<fieldset>
+						<legend>Civilité</legend>
+						<ul>
+                            <div class="choix">
+							<li>
+								<input type="radio" class="radio" name="civilite" id="monsieur" value="Monsieur" checked="checked" />
+								<label for="monsieur">Monsieur</label>
+							</li>
+                            </div>  
+                            <div class="choix">
+							<li>
+								<input type="radio" class="radio" name="civilite" id="madame" value="Madame" />
+								<label for="madame">Madame</label>
+							</li>
+                            </div>  
+						</ul>
+					</fieldset>
+				</li>
+				<li class="nom obligatoire">
+					<label for="nom">Nom</label>
+                    <p class="explication">Ceci est une explication</p>
+					<input type="text" class="text" name="nom" id="nom" value="" />
+				</li>
+				<li class="prenom erreur">
+					<label for="prenom">Prénom</label>
+					<input type="text" class="text" name="prenom" id="prenom" value="06 82 30 96 16" />
+					<p class="erreur_message">Le prénom ne doit pas contenir de chiffres !</p>
+				</li>
+				<li class="date">
+                                    <fieldset>
+                                        <legend>Date de naissance</legend>
+                                        <ul>
+                                            <li class="date_naissance_jour">
+                                                <label for="date_naissance_jour">Jour de naissance</label>
+                                                <select name="date_naissance_jour" id="date_naissance_jour">
+                                                        <option label="01" value="01">01</option>
+                                                        <option label="02" value="02">02</option>
+                                                        <option label="03" value="03">03</option>
+                                                        <option label="04" value="04">04</option>
+                                                        <option label="05" value="05">05</option>
+                                                        <option label="06" value="06">06</option>
+                                                </select>
+                                            </li>
+                                            <li class="date_naissance_mois">
+                                                <label for="date_naissance_mois">Mois de naissance</label>
+                                                <select name="date_naissance_mois" id="date_naissance_mois">
+                                                        <option label="Janvier" value="01">Janvier</option>
+                                                        <option label="Février" value="02">Février</option>
+                                                </select>
+                                            </li>
+                                            <li class="date_naissance_annee">
+                                                    <label for="date_naissance_annee">Année de naissance</label>
+                                                    <input type="text" class="text" name="date_naissance_annee" id="date_naissance_annee" value="" />
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset class="conditions_generales">
+			<legend>Condition générales</legend>
+			<ul>
+                            <div class="choix">
+				<li class="accepter_conditions">
+					<input type="checkbox" name="accepter_conditions" id="accepter_conditions" value="OK" />
+					<label for="accepter_conditions">J'ai lu et j'accepte les conditions générales du service</label>
+				</li>
+                            </div>
+                            <div class="choix">
+				<li class="accepter_spam">
+					<input type="checkbox" class="checkbox" name="accepter_spam" id="accepter_spam" value="OK" checked="checked" />
+					<label for="accepter_spam">J'autorise la divulgation de mes coordonnées à des tiers</label>
+				</li>
+                            </div>
+			</ul>
+		</fieldset>
+		<p class="boutons">
+            <input type="button" class="button" value="Me desinscrire" />
+            <input type="submit" class="submit" value="Je m'abonne !" />
+		</p>
+	</form>
+</div>
+
+@see - [Structure HTML des formulaires de SPIP 2](http://www.spip.net/fr_article3791.html)
+
+Styleguide theme.spip.forms
+*/
+
+/*  ------------------------------------------
+/*  Habillage des formulaires
+/*  ------------------------------------------ */
+
+
+$fieldset--border-color: silver !default;
+
+/* #MARK = Structure generale des formulaires SPIP 
+----------------------------------------------- */
+
+
+.formulaire_spip {
+
+    
+    & form { 
+
+    }
+    
+    & ul {
+    }
+    
+    & ul li {
+
+    }
+    
+    /* Fieldset */
+    & fieldset {
+
+    
+    }
+    
+    & fieldset legend {
+
+        
+    }
+    
+    & fieldset fieldset {
+
+    }
+    
+    & fieldset fieldset legend {
+
+    }
+    
+    // Messages spécifiques aux Champs du formulaire et listes de champ
+   & .explication,
+  & .attention,
+  & .erreur .erreur-message,
+  & .reponse_formulaire {
+  		@include notice-layout();
+  }
+
+    // Messages spécifiques aux Champs du formulaire et listes de champ
+    & .explication {
+        @extend .alert-info;
+    }
+    
+    & .attention {
+        @extend .alert-warning;
+    }
+    
+    & .obligatoire{
+        
+        & label:after{
+            content: "*";
+        }
+    }
+    
+    & .erreur{
+        & .erreur_message {
+            @extend .alert-error;
+        }
+    }
+    
+    // Gestion des messages réussite/erreur du formulaire
+    & .reponse_formulaire{
+        
+    }
+		.reponse_formulaire_ok{
+			@extend .alert-success;
+		}
+		.reponse_formulaire_erreur {
+			@extend .alert-error;
+		}
+    
+    
+    
+    
+    
+    & label {
+
+        
+    }
+    
+    & li p,
+    & p {
+    }
+
+    
+    & .choix {
+        width: 50%;
+        float: left;
+
+        
+        & input[type="checkbox"], input[type="radio"]{
+            width: auto;
+        }
+        & label{
+            display:inline;
+            font-weight:normal;
+            float: none;
+        }
+    }
+    
+    
+    /* Champs de saisie */
+    & input.text,
+    textarea {
+        box-sizing: border-box;
+        
+        background: none repeat scroll 0 0 #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        
+        box-shadow: 0,1px,1px,rgba(0, 0, 0, 0.075),inset;
+        
+        display: inline-block;
+        width: 100%;
+        line-height: 20px;
+        padding: 4px 5px;
+        
+        transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+
+        
+       
+        &:focus,:active{
+            border: 2px solid #74e9ff;
+            box-shadow: 0,2px,2px,rgba(0, 0, 0, 0.075),inset ;
+        }
+    }
+
+    & textarea {
+        width: 100%;
+
+    }
+    
+
+    & select {
+        width: 99%;
+    }
+    
+    /* Boutons */
+    & .boutons {
+        clear: both;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        text-indent: 0;
+    }
+
+    & .boutons input,
+    & input.submit {
+        @extend .btn;
+        margin-bottom: 0.5em;
+        
+        
+    }
+    
+}
+
+
+
+
+
+
+/* # Selection des langues
+
+*/
+.formulaire_menu_lang {
+    
+}
+
+/* # Formulaires de recherche (site / petitions)
+
+*/
+.formulaire_recherche input.text {
+}
+.formulaire_recherche input.submit {
+    
+}
+
+/* Choix des mots-clefs
+
+*/
+ul.choix_mots {
+    
+}
+ul.choix_mots li {
+
+}
+ul.choix_mots li label {
+
+}
+
+.formulaire_spip .bugajaxie {
+    display: none; /*IE/Win*/
+} 
+
+/* # Formulaire de login dans une page
+
+*/
+.formulaire_login ul li {
+
+}
+.formulaire_login .editer_password .details {
+
+}
+.formulaire_login #spip_logo_auteur {
+
+}
+
+/* # Fomulaire de contact
+
+*/
+.formulaire_ecrire_auteur {}
+.formulaire_ecrire_auteur .saisie_sujet_message_auteur input.text {
+    width: 100%;
+}
+
+
+/* Formulaire de forum */
+.formulaire_forum .saisie_titre input.text,
+.formulaire_forum .saisie_titre textarea {
+
+}
+
+
+/* Formulaire Recherche */
+.formulaire_recherche {
+
+    label {
+
+    }
+    input.submit{
+
+    }
+}
+	
+.formrecherche {
+
+}
+
+.formulaire {
+
+}

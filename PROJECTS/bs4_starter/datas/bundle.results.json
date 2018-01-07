@@ -1,0 +1,5 @@
+{
+  "assets/css/theme": {
+    "styles": "<link href='/assets/css/theme.css' media='all' rel='stylesheet' type='text/css'/>"
+  }
+}

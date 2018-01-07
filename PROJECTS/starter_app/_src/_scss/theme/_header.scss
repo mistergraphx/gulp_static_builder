@@ -1,0 +1,80 @@
+ 
+    
+#{$header}{
+    padding-top:1em; 
+    
+    .nom_site_spip {
+        float: left;
+        
+        
+        margin-top:0em;
+        margin-bottom:.5em;
+        
+        font-size: 1.5em;
+        
+        /*font-family: $serif;
+    }
+    
+    .spip_logos, #logo_site{
+        /*max-width : 100%;*/
+    }
+    
+    #logo_site img {
+        /*float: none;*/
+        /*margin:0;*/
+    }
+    
+    .slogan_site_spip {
+        display: block;
+    }
+    
+    .form-search {
+        
+        @include media(em($medium-screen)){
+            width: em(350);
+            float:right;
+        }
+        
+        label{
+            display:none;
+        }
+        
+        $form-search-radius : 1em;
+        
+        #recherche {
+            width:80%;
+            float:left;
+            border-radius: $form-search-radius 0 0 $form-search-radius;
+            border-right-width: 0; 
+            height: 2em;
+            line-height: 1.5em;
+            padding-left: $form-search-radius;
+            
+        }
+        
+        .submit{
+            width:20%;
+            float:right;
+            padding: 0;
+            border-radius: 0 $form-search-radius $form-search-radius 0;
+            height: 2em;
+            line-height: .5em;
+            &:hover{
+                box-shadow: none;
+            }   
+        }
+    }
+
+    .formulaire_menu_lang{
+        @include media(em($medium-screen)){
+            width: em(350);
+            float:right;
+        }
+        
+        label {
+            width: 50%;
+            float: left;
+        }
+    }
+}
+    

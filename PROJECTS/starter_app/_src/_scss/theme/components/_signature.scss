@@ -1,0 +1,36 @@
+/* # Signature
+
+Signature d'un auteur
+
+Markup:
+<div class="signature">
+	<div class="thumbnail">
+		<img width="100" height="100"/>
+	</div>
+	<div class="content">
+		<div class="name">John Doe</div>
+		<div class="bio"></div>
+	</div>
+</div>
+
+Styleguide components.signature
+*/
+.signature {
+	padding: $base-spacing;
+	> .thumbnail {
+		width: 100px;
+		@extend .pull-left;
+		img {
+			@extend %img-circle;
+		}
+	}
+	> .content {
+		.name {
+			font-weight: bold;
+			font-family: $sans-serif;
+		}
+		.bio{
+			
+		}
+	}
+}

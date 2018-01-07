@@ -1,0 +1,232 @@
+/* # Blocks
+
+
+Styleguide theme.blocks
+*/
+.browsehappy {
+	@extend .alert-info;
+}
+/* # Block Header
+
+
+
+Styleguide theme.blocks.header
+*/
+#header{
+
+	.wrapper {
+		@include media('<=tablet'){
+			padding: 0;
+		}
+	}
+	@include media('>tablet'){
+		.head-desktop .brand{
+			font-size: 2rem;
+			font-weight: bold;
+		}
+		//@include padding($base-spacing*2 0);
+	}
+
+}
+
+
+/* # Block Footer
+
+Styles du pied de page
+
+
+Styleguide theme.blocks.footer
+*/
+#footer {
+    padding: ($base-spacing * 2) 0;
+    
+    font-family: $base-font-family;
+    font-size: 1em;
+    line-height: strip-unit($base-line-height);
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    color: red;
+
+    ul li {
+		@include media('>phone'){
+			display: inline-block;
+			padding: 0 $small-spacing;
+		}
+        
+    }
+    
+    a {
+       color: $white;
+    }
+    
+}
+
+/* # Reassuring
+
+Des encarts rassurant
+
+Markup:
+<aside id="aside" class="reassuring">
+    <div class="wrapper">
+          <p>Un doute, une question : contactez moi, au <span class="icn-phone" aria-hidden="true"></span>#IDENTITE_TELEPHONE </p>    
+    </div>
+</aside>
+
+Styleguide theme.blocks.reassuring
+*/
+.block_reassuring {
+    $reassuring-background: #e8e8e8;
+    padding: 15px 10px;
+    
+    background-color: $reassuring-background;
+    text-align: center;
+    font-size: 16px;
+    p{ color: darken($reassuring-background, 60);
+        margin: 0;
+    }
+    a {
+        text-decoration: underline;
+        font-weight: bold;
+        color: darken($reassuring-background, 80);
+    }
+}
+/* # Block Newsletter
+
+Encart inscription newsletter
+
+Markup:
+<div class="formulaire_spip formulaire_newsletter formulaire_newsletter_subscribe ajax">
+    <form method="post" action="/#" aria-live="off" class="noajax hasajax">
+        <input type="hidden" name="var_ajax" value="form">
+        <div>
+            <div>
+                <input name="formulaire_action" type="hidden" value="newsletter_subscribe">
+                <input name="formulaire_action_args" type="hidden" value="MtK3g0bx8AxEO/y+mTkb4DeU1TEvGlZ+1muHsSkBRfVUPsFPk2kA6XNQ/CgW3/IE4dpEjvFV6KZQ5llrlRmZoWXfplrJ+Ln6/Uu5si6fXLpAKg==">
+            </div>
+            <ul class="editer-groupe">
+                <li class="editer editer_session_email obligatoire">
+                    <label for="session_email">Email</label>
+                    <input type="email" placeholder="Saisissez votre email" name="session_email" class="email text" value="webhamster@mister-graphx.com" id="session_email" required="required">
+                </li>
+            </ul>
+            <!--extra-->
+            <p class="boutons">
+                <input type="submit" class="submit" value="M'inscrire à la Newsletter">
+            </p>
+        </div>
+    </form>
+</div>
+
+Styleguide theme.blocks.newsletter
+*/
+.block_newsletter {
+    padding: $base-spacing;
+    
+    background-color: #e7f5de;
+    
+    form {
+        margin: 0 auto;
+        padding: $base-spacing * 1;
+        background: white;
+    }
+    
+    label {@extend .visuallyhidden;}
+    input.text{
+        font-style: italic;
+    }
+    input.submit{
+        @extend .btn.btn-primary;
+        white-space: normal;
+        width: 100%;
+    }
+    @include media('>tablet'){
+        form{
+            width: 70%;
+        }
+        input, p {
+            margin: 0;
+        }
+        ul.editer-groupe > li { // spip form class
+            display: block;
+            width: 50%;
+            float: left;
+        }
+        input.email.text {
+            line-height: 27px;
+        }
+        input.submit {
+            width: 50%;
+        }
+        p.boutons {
+            clear:none;
+        }
+        
+    }
+}
+/* # Breadcrumb
+
+Styles du chemin
+
+
+
+Markup:
+<nav id="breadcrumb">
+    <div class="wrapper">
+        <ol class="breadcrumb">
+            <li class="1on">
+                <strong class="on">panier</strong>
+                <span class="divider"> &gt; </span>
+            </li>
+            <li class=" active">	<strong class="on">commande</strong>
+	<span class="divider"> &gt; </span>
+            </li>
+            <li class=" active">	<strong class="on">livraison</strong>
+	<span class="divider"> &gt; </span>
+            </li>
+            <li class=" active">	<strong class="on">paiement</strong>
+
+            </li>
+        </ol>
+    </div>
+</nav>
+
+Styleguide theme.blocks.breadcrumb
+*/
+// Layout
+#breadcrumb .breadcrumb {
+    display: none;
+    margin: $small-spacing 0;
+    
+    @include media('>phone'){
+        display: block;
+    }
+}
+// Theme
+#breadcrumb .breadcrumb {
+    font-family: $sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+    font-size:small;
+	color: rgba($base-font-color, .4);
+    
+    li {
+        display: inline-block;
+    }
+    li.on {
+        
+    }
+    li.active {
+        color: lighten($base-font-color,45%);
+        font-weight: normal;
+    }
+    & a {
+        color:rgba($base-font-color, .3);
+        &:hover,&:focus {
+        	color:rgba($base-font-color, .5);
+        	text-decoration: underline;
+        }
+    }
+}
+

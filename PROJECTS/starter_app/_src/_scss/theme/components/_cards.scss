@@ -1,0 +1,90 @@
+/* # Cards
+
+
+
+
+Markup:
+<article class="card js-clickable contenu entry hentry">
+	<div class="card-thumbnail">
+		<img src="" width="360" height="360">
+	</div>
+	<div class="card-content">
+		<div class="card-title entry-title">
+			<a href="">
+				<span>Cartes de vœux</span>
+			</a>
+		</div>
+		
+	</div>
+</article>
+
+Styleguide cmponents.cards
+*/
+
+
+$card-base-font-family: $helvetica !default;
+
+%titles {
+	color: $black;
+	font-size: 1.2rem;
+	font-family: "Bebas", $card-base-font-family;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+// Layout utility
+.card-grid {
+    padding-top: $base-spacing;
+	display: flex;
+	flex-wrap:wrap;
+	
+    & > li {
+	  
+		padding-top: gutter();
+		@include media('>phone','<=tablet'){
+			@include with-layout(6 split){
+				@include span(3);
+			}
+		}
+		@include media('>tablet'){
+			@include span(3);
+		}
+	}
+}
+		
+		
+		
+.card {
+	
+	transition: all .2s ease-in-out;
+	cursor:pointer;
+	
+	&-thumbnail{
+		min-height: span(3);
+		overflow-y: hidden;
+		> img {
+			transition: opacity 1s, transform 1s;
+		}
+	}
+	&-content{
+
+	}
+	&-title{
+		@extend %titles;
+		padding: $small-spacing 0;
+	}
+	a {
+		@extend %titles;
+	}
+	
+	&:hover, &:focus {
+		.card-thumbnail > img {
+			transform: scale3d(1.1, 1.1, 1);
+		}
+		 //transform: scale(1.1);
+		 //@include single-box-shadow();
+	}
+}
+
+

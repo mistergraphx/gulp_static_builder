@@ -1,0 +1,43 @@
+/* # Page Sommaire
+
+Style de la page sommaire
+
+
+Styleguide pages.page_sommaire
+*/
+
+// Page sommaire
+.page_sommaire {
+    
+
+    // Test
+    // map externe
+    
+    article.box {
+        margin-bottom: $base-spacing * 1.5;
+        padding: 1em;
+        border: $base-border;
+        border-radius: $base-border-radius;
+        
+        h2{
+            font-size: $base-font-size * 2;
+        }
+        img{
+            float: left;
+            margin-right: gutter();
+        }
+        
+    }
+    
+
+    
+    .liste.long {
+        .item{
+            margin-bottom: $base-spacing;
+            
+            p{
+                margin: 0;
+            }
+        }
+    }
+}

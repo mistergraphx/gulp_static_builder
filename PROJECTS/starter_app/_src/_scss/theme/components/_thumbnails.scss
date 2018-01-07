@@ -1,0 +1,63 @@
+/* # Thumbnails
+
+Thumbnails grids et thumbnails items
+
+
+Markup:
+
+
+Styleguide cmponents.thumbnails
+*/
+.thumbnail-grid {
+	padding-top: $base-spacing;
+    display: flex;
+	flex-wrap:wrap;
+    & > li {
+	  padding-top: gutter();
+		@include media('>phone','<=tablet'){
+			@include with-layout(6 split){
+				width: span(3);
+			}
+		}
+		@include media('>tablet'){
+			@include with-layout(12 split){
+				@include span(3);
+			}
+		}
+	}
+}
+
+.thumbnail-grid .item {
+	$border: 0px solid transparent;
+	border-top: $border;
+	border-bottom: $border;
+	.item-thumbnail {
+		display: block;
+		border: 3px solid transparent;
+		height:130px;
+		overflow:hidden;
+		margin-bottom: $small-spacing;
+	}
+	a:hover,
+	&.on {
+		.item-thumbnail {
+		border-color:silver;
+		}
+		.item-heading {
+			text-decoration: underline;
+		}
+	}
+	.item-content {
+		display: block;
+		.item-heading {
+			font-size: .8em;
+			color:$black;
+			text-align: center;
+			font-weight: bold;
+			font-family: $sans-serif;
+		}
+		.item-details {
+			@extend .visuallyhidden;
+		}
+	}
+}

@@ -1,0 +1,28 @@
+@import "fragments";
+
+// App settings
+// Travailler sur un composant gerant la configuration des autres et les surcharges utilisateur
+// https://github.com/at-import/toolkit/blob/2.x.x/stylesheets/toolkit/_settings.scss
+@import "_settings";
+
+//
+// ------------------------------------------------*/
+// Output
+// ------------------------------------------------*/
+
+// Reset
+@import "normalize";
+// Base html
+@import "base/base";
+
+@import "addons/helpers/helpers";
+// Custom Theme
+@import "theme/theme";
+
+// @media Print
+// La feuille de style pour l'impression doit etre placee
+// a la fin pour surcharger correctement tout les autres styles
+//@import "core/base/print";
+// Debug
+//@import "core/utils/debug";
+

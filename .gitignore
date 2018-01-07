@@ -1,0 +1,12 @@
+node_modules/*
+.svn/*
+.komodotools/
+.sass-cache
+build/
+!_EXTENSIONS/.bowerrc
+!_EXTENSIONS/bower.json
+_EXTENSIONS/*
+!_FRAMEWORKS/.bowerrc
+!_FRAMEWORKS/bower.json
+_FRAMEWORKS/*
+_JS_LIBS/

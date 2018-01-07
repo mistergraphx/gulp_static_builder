@@ -1,0 +1,15 @@
+{
+    "name":"test app",
+    "slogan": "Ac varius enim lorem ullamcorper dolore.",
+    "description":"Ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum.",
+    "url":"http://localhost:3000/",
+    "lang":"fr",
+    "images_path":"images/",
+    "contact": {
+        "email": "arnaud@mister-graphx.com",
+        "phone": "00 00 00 00 00",
+        "address": "1234 Somewhere Road #8254",
+        "town":"Nashville",
+        "zip-code":" TN 00000-0000"
+    }
+}

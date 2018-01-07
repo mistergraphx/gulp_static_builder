@@ -1,0 +1,67 @@
+/* # Comments
+
+http://www.webdesigndev.com/24-wonderful-but-different-blog-comment-form-designs/
+
+Styleguide components.comments
+*/
+.comments {
+	
+	.comments-list {
+		
+	}
+	.comment {
+		@include clearfix;
+		margin-top: $base-spacing;
+		
+		
+		@include media('>phone'){
+			.comment-meta {
+				@include span(2 of 8);
+			}
+			.comment-content {
+				@include span(6 of 8 last);
+			}
+		}
+		
+	}
+	
+	.comment-meta {
+		.avatar {
+			float:left;
+			margin-right: $small-spacing;
+			@include media('>phone'){
+				float: none;
+				margin: 0 ;
+				& img{
+					margin: 0 auto;
+					display: block;
+				}
+				
+			}
+		}
+		.author, .date {
+			font-size: .8em;
+			font-style: italic;
+		}
+		.date {
+			
+		}
+	}
+	
+	.comment-footer {
+		@include clearfix;
+		@include full();
+		padding: $base-spacing 0;
+		// Lien de reponse , haut de page
+		.utilities{
+			float: right;
+			li {
+				display: inline-block;
+			}
+		}
+	}
+	
+	.comment.reply {
+		margin-left: $base-spacing*3;
+	}
+}

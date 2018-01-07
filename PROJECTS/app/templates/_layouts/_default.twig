@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="{{ app.lang }}">
+
+<head>
+	{% include '../_partials/commons/head.twig' %}
+</head>
+
+<body data-spy="scroll" data-target="#navbar_main" data-offset="80" cz-shortcut-listen="true">
+
+<div class="modal fade" id="modal_portfolio" tabindex="-1" role="dialog" aria-labelledby="modal_portfolio__heading">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">×</span>
+  </button>
+				<h4 class="modal-title" id="modal_portfolio__heading"></h4>
+			</div>
+			<div class="modal-body">
+				<img id="modal_portfolio__img" class="img-responsive" src="{{app.images_path}}/public/zinguerie2.png" alt="">
+				<p id="modal_portfolio__content"></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+	{% include "../_partials/navs/nav_primary.twig" %}
+
+
+	
+
+	<section class="section_banner" id="section_banner">
+
+		<div class="banner__carousel__img" data-img="{{app.images_path}}public/nettoyage.png, {{app.images_path}}public/roof-005.jpg, {{app.images_path}}public/toit-goutiere.png" style="position: absolute; z-index: 0; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+			<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 908px; width: 1138px; z-index: -999998; position: absolute;">
+
+				<img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1491.66px; height: 908px; max-height: none; max-width: none; z-index: -999999; left: -176.828px; top: 0px;" src="{{app.images_path}}public/nettoyage.png"></div>
+		</div>
+
+		<div id="banner__carousel" class="banner__carousel carousel" data-ride="carousel">
+
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
+									<span>Hortica Rénovation</span>
+								</h1>
+								<p class="page-subheader text-white-muted text-center animate-down animate-xs-step-1" style="font: italic bold 20px/40px Georgia,serif;">
+									<u>Pourquoi changer quand on peut rénover?</u>
+								</p>
+								<div class="text-center">
+									<a href="#section_features" class="btn btn-primary animate-down animate-xs-step-2">
+En savoir plus
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
+									<span>Hortica Rénovation</span>
+								</h1>
+								<p class="page-subheader text-white-muted text-center animate-down animate-xs-step-1" style="font: italic bold 20px/40px Georgia,serif;">
+									<u>Pourquoi changer quand on peut rénover?</u>
+								</p>
+								<div class="text-center">
+									<a href="#section_features" class="btn btn-primary animate-down animate-xs-step-2">
+En savoir plus
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<h1 class="h0 page-header text-white text-center animate-down animate-xs-step-0">
+									<span>Hortica Rénovation</span>
+								</h1>
+								<p class="page-subheader text-white-muted text-center animate-down animate-xs-step-1" style="font: italic bold 20px/40px Georgia,serif;">
+									<u>Pourquoi changer quand on peut rénover?</u>
+								</p>
+								<div class="text-center">
+									<a href="#section_features" class="btn btn-primary animate-down animate-xs-step-2">
+En savoir plus
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<ol class="carousel-indicators">
+				<li data-target="#banner__carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#banner__carousel" data-slide-to="1" class=""></li>
+				<li data-target="#banner__carousel" data-slide-to="2" class=""></li>
+			</ol>
+
+			<a class="left carousel-control" href="#banner__carousel" role="button" data-slide="prev">
+<span class="ion-android-arrow-back" aria-hidden="true"></span>
+<span class="sr-only">Précédent</span>
+</a>
+			<a class="right carousel-control" href="#banner__carousel" role="button" data-slide="next">
+<span class="ion-android-arrow-forward" aria-hidden="true"></span>
+<span class="sr-only">Suivant</span>
+</a>
+		</div>
+	</section>
+
+	<section class="section_features" id="section_features">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-3 col-centered"><img src="{{app.images_path}}public/garantie2.png"></div>
+				<div class="col-xs-12">
+					<h2 class="page-header text-center">
+						Notre savoir faire à <span>votre</span> service
+					</h2>
+					<p class="page-subheader text-center">
+						Forte d'une expérience acquise au cours de longues années, notre société peut aujourd'hui proposer ses services pour des travaux de couverture sur une large gamme de matériaux. Faites appel à nous pour tout travaux de couverture et peinture (et peinture boiseries), de rénovation et nettoyage et pose de tuiles pose de velux, pose de gouttières (pvc zinc), ravalement. Expert en démoussage et traitement hydrofuge.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="features__item animate-sm-step-0" data-animate="animate-up">
+						<div class="features__item__icon">
+							<i class="ion-edit"></i>
+						</div>
+						<h3 class="features__item__heading">
+							Prestations sur mesure
+						</h3>
+						<div class="features__item__body">
+							Notre équipe réalisera vos envies tout en vous conseillant sur les meilleures pratiques
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="features__item animate-sm-step-1" data-animate="animate-up">
+						<div class="features__item__icon">
+							<i class="ion-flash"></i>
+						</div>
+						<h3 class="features__item__heading">
+							Réactivité
+						</h3>
+						<div class="features__item__body">
+							Demandez un devis gratuit nous fixerons un rendez-vous dès que possible
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="features__item animate-sm-step-2" data-animate="animate-up">
+						<div class="features__item__icon">
+							<i class="ion-android-contacts"></i>
+						</div>
+						<h3 class="features__item__heading">
+							Suivi client
+						</h3>
+						<div class="features__item__body">
+							Nous suivons avec vous l'évolution de nos réalisations pour toujours les améliorer
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="features__item animate-sm-step-0" data-animate="animate-up">
+						<div class="features__item__icon">
+							<i class="ion-fireball"></i>
+						</div>
+						<h3 class="features__item__heading">
+							Une passion
+						</h3>
+						<div class="features__item__body">
+							Notre entreprise est constituée d'une équipe de passionnés, toujours prête à se dépasser!
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="features__item animate-sm-step-1" data-animate="animate-up">
+						<div class="features__item__icon">
+							<i class="ion-clipboard"></i>
+						</div>
+						<h3 class="features__item__heading">
+							Devis gratuit
+						</h3>
+						<div class="features__item__body">
+							Nous nous déplaçons gratuitement chez vous pour estimer ensemble le coût de vos travaux.
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="features__item animate-sm-step-2" data-animate="animate-up">
+						<div class="features__item__icon">
+							<i class="ion-leaf"></i>
+						</div>
+						<h3 class="features__item__heading">
+							Ecologique
+						</h3>
+						<div class="features__item__body">
+							Nous vous assurons un travail de qualité respectant l'environnement.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section_portfolio" id="section_portfolio">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="page-header text-center sr-only">
+						A picture paints a <span>thousand</span> words
+					</h2>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					<div class="portfolio__item">
+						<div class="portfolio__item__img">
+							<img src="{{app.images_path}}public/hortica-avap.png" class="img-responsive" alt="Pose ardoises et tuiles">
+							<div class="portfolio__item__img__mask">
+								<h3 class="text-center">
+									Nettoyage et rénovation
+								</h3>
+								<div class="text-center">
+									<a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Nettoyage et rénovation" data-img="{{app.images_path}}public/hortica-avap.png" data-content="Je m'occupe du nettoyage de vos façades et murets sans karcher à l'aide de produits spécialisés, tels que C-net Plus (Démoussant) et Dalep 2100 (Fongicide professionnel)">
+Détails
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="portfolio__item">
+						<div class="portfolio__item__img">
+							<img src="{{app.images_path}}public/hortica_maisonfinie.png" class="img-responsive" alt="ravallement Nettoyage demoussage toiture">
+							<div class="portfolio__item__img__mask">
+								<h3 class="text-center">
+									Ravallement et toiture
+								</h3>
+								<div class="text-center">
+									<a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Ravallement et toiture" data-img="{{app.images_path}}public/hortica-avap2.png" data-content="Notre société intervient pour tous types de travaux de couverture en neuf et en rénovation. Faites vite appel à nos services. J'interviens pour tous types de travaux de couverture en neuf et en rénovation. L'application de résine sur les tuiles bétons permet d'assurer l'imperméabilité du revètement! Au cours des années le toit  subit une érosion naturelle qui a pour effet dans modifier l'aspect. Le support devient alors plus ternes en même temps les poussières et les résidus de pollution s'y accumulent.Quelque soit le matériaux . des mousses .des lichen .des champignons apparaissent sous forme de taches et se développent inévitablement selon la pente du toit . Son exposition, l'humidité ambiante,etc. Quand il devienne trop important il représente un véritable danger pour votre toiture. Fort de nos années d'expérience. Nous mettons à votre disposition une gamme spécifique pour la rénovation des toiture, béton, terre cuite, Fibrociment. Les meilleurs produits industrielle sur le marché pour votre maison">
+Détails
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="portfolio__item">
+						<div class="portfolio__item__img">
+							<img src="{{app.images_path}}public/piscine.png" class="img-responsive" alt="Travaux de couverture et rénovations">
+							<div class="portfolio__item__img__mask">
+								<h3 class="text-center">
+									Nettoyage de dalles
+								</h3>
+								<div class="text-center">
+									<a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="Application de résine" data-img="{{app.images_path}}public/piscine.png" data-content="Pendant l'hiver, les dalles posées en extérieur prennent souvent la marque du temps. Optez pour un nettoyage de vos terrasses et contour de vos piscine pour profiter au maximum de l'été">
+Détails
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="portfolio__item">
+						<div class="portfolio__item__img">
+							<img src="{{app.images_path}}public/zinguerie2.png" class="img-responsive" alt="Zinguerie">
+							<div class="portfolio__item__img__mask">
+								<h3 class="text-center">
+									ZINGUERIE
+								</h3>
+								<div class="text-center">
+									<a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="ZINGUERIE" data-img="{{app.images_path}}public/zinguerie2.png" data-content="Nous proposons tous types de réalisation de travaux de zinguerie (gouttières, descentes d’eaux pluviales, chéneaux, abergements de cheminées et gaines d’aération) à l'aide de différents matériaux (Cuivre, INOX, Zinc, Acier galvanisé, Aluminium)">
+Détails
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="portfolio__item">
+						<div class="portfolio__item__img">
+							<img src="{{app.images_path}}public/velux.png" class="img-responsive" alt="Pose de velux">
+							<div class="portfolio__item__img__mask">
+								<h3 class="text-center">
+									POSE DE VELUX
+								</h3>
+								<div class="text-center">
+									<a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="POSE DE VELUX" data-img="{{app.images_path}}public/velux.png" data-content="Spécialiste de la toiture, je réalise tous vos projets sur‑mesure et vous permettons de personnaliser vos velux et lucarnes.">
+Détails
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					<div class="portfolio__item">
+						<div class="portfolio__item__img">
+							<img src="{{app.images_path}}public/peinture2.png" class="img-responsive" alt="Dépannage couvreur">
+							<div class="portfolio__item__img__mask">
+								<h3 class="text-center">
+									PEINTURE
+								</h3>
+								<div class="text-center">
+									<a href="#modal_portfolio" class="btn btn-primary" role="button" data-toggle="modal" data-heading="PEINTURE" data-img="{{app.images_path}}public/peinture2.png" data-content="Je réalise tous les travaux de peinture, ponçage, lissage">
+Détails
+</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section_stats" id="section_stats">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="page-header text-center sr-only">
+						Stats
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="stats__item">
+						<div class="stats__item__value" data-from="0" data-to="256" data-speed="1500" data-refresh-interval="50">256
+						</div>
+						<div class="stats__item__caption">Clients satisfaits</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="stats__item">
+						<div class="stats__item__value" data-from="0" data-to="322" data-speed="1500" data-refresh-interval="50">322
+						</div>
+						<div class="stats__item__caption">Projets réalisés</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="stats__item">
+						<div class="stats__item__value" data-from="0" data-to="12397" data-speed="1500" data-refresh-interval="50">12397
+						</div>
+						<div class="stats__item__caption">Plaques posées</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="stats__item">
+						<div class="stats__item__value" data-from="0" data-to="9823" data-speed="1500" data-refresh-interval="50">9823
+						</div>
+						<div class="stats__item__caption">Heures travaillées</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section_about" id="section_about">
+		<div class="container">
+			<div class="row row_centered">
+				<div class="col-sm-6 col-sm-push-6">
+					<h2 class="page-header">
+						Un artisan <span>expérimenté</span>
+					</h2>
+					<p>
+						Avec plus de 10 ans d'expérience dans la couverture, la rénovation et la peinture, j'ai su gagner la confiance de mes nombreux clients.<br><br>Passioné par mon mêtier, je mets un point d'honneur à mener à la perfection toutes les tâches qui me sont confiées!
+					</p>
+				</div>
+				<div class="col-sm-6 col-sm-pull-6">
+					<div class="about__img">
+						<img src="{{app.images_path}}public/hortica.png" class="img-responsive" alt="Projet de couverture, rénovation toiture">
+					</div>
+				</div>
+			</div>
+			<div class="row row_centered">
+				<div class="col-sm-6">
+					<h2 class="page-header">
+						Trois <span>Engagements</span>
+					</h2>
+					<p>
+						Je me porte garant de la perfection de mes réalisations
+					</p>
+					<ul class="list-wf">
+						<li>Le juste choix des matériaux</li>
+						<li>Des chantiers fini en temps et en heure</li>
+						<li>Un travail soigné et garanti</li>
+					</ul>
+				</div>
+				<div class="col-sm-6">
+					<div class="about__img">
+						<img src="{{app.images_path}}public/postiche.png" class="img-responsive" alt="Charpente et couverture">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="overlay" onclick="style.pointerEvents='none'"></div>
+	<!--
+	<iframe id="map" scrolling="no" marginheight="0" marginwidth="0"
+	style="border: 0px none;" src="index_1.html" allowfullscreen="" width="100%" height="300"
+	frameborder="0"></iframe>
+	-->
+	<!---->
+ <section class="section_contact" id="section_contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="page-header text-center">
+						Demandez un devis <span>gratuit</span>
+					</h2>
+					<p class="page-subheader text-white-muted text-center">
+						Nous nous déplaçons dans toute la région
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="contact__container">
+						<div class="row">
+							<div class="col-sm-8">
+								<form class="contact__container__form" id="form_sendemail">
+
+									<div class="form-group">
+										<h3>Contactez-nous</h3>
+									</div>
+
+									<div class="alert" id="form_message" role="alert"></div>
+
+									<div class="form-group">
+										<label for="email" class="sr-only">Votre adresse mail*</label>
+										<input name="email" class="form-control" id="email" placeholder="Votre adresse mail" type="email">
+										<span class="help-block"></span>
+									</div>
+									
+									<div class="form-group">
+										<label for="name" class="sr-only">Votre nom *</label>
+										<input name="nom" class="form-control" id="name" placeholder="Votre nom" value="" type="text">
+										<span class="help-block"></span>
+									</div>
+									<div class="form-group">
+										<label for="phone" class="sr-only">Votre nom *</label>
+										<input name="phone" class="form-control" id="phone" placeholder="Votre numéro de téléphone" value="" type="phone">
+										<span class="help-block"></span>
+									</div>
+
+									<div class="form-group">
+										<label for="message" class="sr-only">Quels sont vos besoins? *</label>
+										<textarea name="devis" class="form-control" id="message" placeholder="Quels sont vos besoins?"></textarea>
+										<span class="help-block"></span>
+									</div>
+									<p id="success-msg" style="display: none;">Votre message a bien été envoyé!</p>
+									<p id="failure-msg" style="display: none;">Il y a eu un problème, veuillez réessayer!</p>
+
+									<button type="submit" class="btnbtn-primary">Envoyer</button>
+								</form>
+							</div>
+							<div class="col-sm-4">
+								<ul class="contact__container__info"> 
+									<li>
+										<h3>Informations Pratiques</h3>
+									</li>
+									<li>
+										<i class="ion-android-pin"></i>
+										<p>
+											317 Rue de la Garenne, 92000 Nanterre<br> 19 avenue des Courlains, 95220 Herblay<br> Dépanage dans toute la France
+										</p>
+									</li>
+									<li>
+										<i class="ion-android-call"></i>
+										<p>
+											<a href="tel:+33627071668">06 27 07 16 68</a>
+										</p>
+									</li>
+									<li>
+										<i class="ion-android-mail"></i>
+										<p>
+											<a href="mailto:entreprisehortica95@gmail.com">entreprisehortica95@gmail.com</a>
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	{% include '../_partials/commons/footer.twig' %}
+	
+	<script>
+
+//Form : http://hayageek.com/jquery-ajax-form-submit/ 
+
+(function($){
+    var contactForm = $('#form_sendemail');
+    contactForm.on('submit', function(e){
+        
+            e.preventDefault();
+            var postData = $(this).serialize();
+            $.ajax({
+                url: "//formspree.io/{{app.contact.mail}}",
+                method: "POST",
+                data: postData,
+                dataType: "json",
+                success:function(data, textStatus, jqXHR) {
+                    $(this).fadeOut(3000);
+                    $('.success-message').fadeIn(3000).css({display:"block"});
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    //if fails
+                    console.log(errorThrown);
+                }
+            });
+    });
+})(jQuery);
+</script>
+
+</body>
+
+</html>

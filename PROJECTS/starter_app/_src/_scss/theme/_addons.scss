@@ -1,0 +1,41 @@
+/** # Addons
+
+Styleguide addons
+*/
+// Refills Patterns :
+//@import "addons/refills/patterns/cards";
+//@import "addons/refills/type-systems/type-systems";
+//@import "addons/ui-kit/accordions";
+$notice-prefix: 'alert';
+$alert-color: #fff6bf;
+$error-color: #fbe3e4;
+$info-color: #e5edf8;
+$success-color: #e6efc2;
+@import "addons/ui-kit/notice";
+
+$badge-prefix: 'label';
+@import "addons/ui-kit/badges";
+//@import "addons/ui-kit/breadcrumbs"; // @media
+//@import "addons/ui-kit/buttons";
+//@import "addons/ui-kit/cards";
+@import "addons/ui-kit/icons";
+//@import "addons/ui-kit/medias-objects"; // @media
+//@import "addons/ui-kit/pagination"; //@media
+//
+//@import "components/medias/images";
+@import "components/navs/skip-nav";
+
+/* # AddOns Theming
+
+Add Some styles for your addons here
+
+Styleguide theme.addons
+*/
+.btn.btn-primary{
+    border: 1px solid $red;
+    color: $red;
+    &:hover{
+
+        color: darken($red, 8%);
+    }
+}

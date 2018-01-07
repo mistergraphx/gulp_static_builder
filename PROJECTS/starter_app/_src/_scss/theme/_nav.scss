@@ -1,0 +1,57 @@
+
+// Navigation principale
+// Fragments/navs/cssmenu
+
+//$sans-serif: $sans-serif;
+$base-background-color: $black;
+$base-font-color: $white;
+$rm-drop-sub-width: 200px;
+$rm-menu-mobile-width: 15rem;
+@import "addons/responsive_menu/responsive_menu";
+@import "addons/responsive_menu/theme_dark";
+
+#header {
+	margin-bottom: $small-spacing;
+	
+	position: relative; // force adjust to childs
+	@include media('>=tablet'){
+		height:$base-spacing * 4;
+	}
+	
+	.wrapper { padding:0; }
+	
+	.responsive-menu {
+		background-color: rgba($base-background-color, .8);
+	
+		@include media('>tablet'){
+			.head-desktop{
+				@include span(3 of 8);
+			}
+			.menu-container{
+				@include span(5 of 8 last);
+			}
+		}
+	}
+}
+
+
+
+
+// Pagination
+$pagination-a-background: #EED ;
+$pagination-on-color: #fff;
+$pagination-on-background: #222;
+
+//@import "spip/nav/pagination";
+
+
+//.pagination .pages {
+//    @include media('<#{$small}'){
+//        display: none;
+//        visibility: hidden;
+//    }
+//    @include media('>#{$small}'){
+//        display: inline-block;
+//        visibility: visible;
+//    }
+//}

@@ -1,0 +1,281 @@
+/* # Spacers - hr 
+
+Quelques variations de marge top/bottom sur les balise hr
+
+.hr--small	    - 20px margin
+.hr--medium     - 35px margin
+.hr--large      - 60px margin
+.clear          - Aplique un clear both et masque la bordure
+
+
+Markup:
+<hr class="$modifierClass">
+
+@todo   - pourquoi ne pas se baser sur le ryhtm vertical … un jour
+
+Styleguide theme.typo.spacers
+*/
+hr,
+.hr--small,
+.hr--medium,
+.hr--large {
+    width: 50px;
+}
+
+
+.hr--small { margin: $base-spacing auto }
+.hr--medium { margin: $base-spacing*2 auto }
+.hr--large { margin: $base-spacing*3 auto }
+
+
+
+/* # Long Dash
+
+Mise en forme sur les Cadratins (tiret long)
+ utilisé pour des dialogues, des citation
+
+:hover	- Modifier definition goes here
+
+Markup:
+<span class="long-dash">—</span>
+<span class="em-dash">—</span>
+
+@see        - http://csswizardry.com/2010/01/the-three-types-of-dash/
+@see        - https://garyjones.co.uk/dev/hyphens
+@see        - https://fr.wikipedia.org/wiki/Tiret
+
+Styleguide theme.typo.long-dash
+*/
+
+.long-dash,
+.em-dash{
+    margin: 0 .5em;
+}
+
+// %bordered {
+// 	@include border-width(1px 0);
+// 	border-color: rgba($black, .3);
+// 	border-style: solid;
+// }
+
+.cartouche {
+	@include padding($base-spacing 0 0 0);
+    text-align: left;
+	h1 {
+		display: inline-block;
+		font-size: 2rem;
+		
+		font-family: $heading-font-family;
+		text-transform:uppercase;
+		font-weight: bold;
+	}
+}
+.texte,.cartouche {
+    @include media('>phone'){
+        //max-width: 700px;
+        //margin: 0 auto;
+    }
+}
+
+/* # Type Set
+
+Styles typographiques des contenus
+
+Markup:
+
+
+Styleguide theme.typo.typeset
+*/
+
+.texte {
+    $base-font-color : $black !default;
+    $base-font-size: 1rem;
+    //color: darken($base-font-color, 20%);
+    
+	h2,h3,h4,h5,h6 {
+        font-family: $heading-font-family;
+        font-weight: normal;
+    }
+
+    h2 {
+        margin-bottom: $small-spacing;
+        font-size: 1.5rem;
+    }
+
+    p {
+    	max-width: 700px;
+    	margin-bottom: $base-spacing;
+        margin-left: auto;
+        margin-right:auto;
+
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+        font-family: $base-font-family;
+        font-weight: 400;
+        font-size: $base-font-size;
+        font-style: normal;
+
+        
+
+        & + p {
+        	margin-top: -$small-spacing;
+        }
+    }
+
+    strong {
+        color:lighten($base-font-color,10%) !important;
+    }
+	// Tables
+    table {
+        thead {
+          //  background-color: $dark-gray;
+            
+        }
+    }
+	
+	// Alignements
+	.text-center {
+		text-align: center;
+		@extend p;
+	}
+	// Listes
+	ul {
+		@extend %default-ul;
+	}
+	ol {
+		@extend %default-ol;
+	}
+	// Definitions
+	dl {
+		@extend .dl--inline;
+	}
+	
+	// Citations
+	blockquote {
+		font-size: $base-font-size;
+		font-style: italic;
+		margin: $base-spacing 0;
+		border-left: 8px solid silver;
+		padding:$base-spacing 0 $base-spacing $small-spacing;
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+	
+    /* # Code Blocks
+    
+    Basic Styling for Code Blocks
+    http://adis.ca/entry/2011/pretty-code-block-in-css/
+    https://zone.spip.org/trac/spip-zone/browser/_plugins_/coloration_code/trunk/coloration_code_fonctions.php?rev=102940
+    
+    Markup:
+    <pre>
+        <code></code>
+    </pre>
+    
+    Styleguide theme.typo.code-blocks
+    */
+    // Inline
+    $monospace: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; 
+    $base-border-radius: 4px;
+    code.spip_code {
+		font-family:$monospace;
+    	color:silver;
+    	background-color:transparent;
+    	white-space: pre; 
+    }
+
+    %t-code-blocks {
+    	font-family:$monospace;
+        border-radius: $base-border-radius;
+        background-color: #faf8f0;
+        color:rgba($black, .7);
+		border: 1px solid #bebab0;
+		margin-bottom:$base-spacing;
+		
+    }
+    div.spip_code{
+    	@extend %t-code-blocks;
+		white-space: nowrap;
+		padding:$small-spacing;
+		&::before {
+    		content:'\007B \007D';
+    		display:block;
+    		font-size:1rem;
+    		float:right;
+    		color:rgba($black,.3);
+    	}
+		code {
+			font-family:$monospace; // Overide Normalize
+        	font-size:1rem; // Overide Normalize
+        }
+    }
+
+    textarea.spip_cadre {
+		@extend %t-code-blocks;
+		font-size:1rem;
+    }
+	
+	
+
+}
+
+
+
+/* # $Mixin $Ampersand
+
+Call your ampersand on any element you wish from another stylesheet
+using this Sass extend we've provided. For exmaple:
+
+Use :
+~~~
+.ampersand { @extend %ampersand-placeholder; }
+~~~
+
+Markup:
+<h6>Dewey Cheat 'em <span class="ampersand">&</span> Howe</h6>
+
+@mixin          - ampersand($amp-font-family)
+@param          - $amp-font-family 
+@placeholder    - ampersand-placehoder
+@variable       - $amp-fontface-name : Font family for displaying ampersand with fallback font for unicode range
+@variable       - $amp-fontface-source : path or src for the webfont
+
+Styleguide Typo.Ampersand
+*/
+
+// $Fontface $Unicode-Range-Ampersand
+// -------------------------------------//
+// AAmpersand
+
+$amp-fontface-name: Ampersand !default;
+$amp-fontface-source: local('Georgia'), local('Garamond'), local('Palatino'), local('Book Antiqua') !default;
+$amp-fontface-fallback: local('Georgia') !default;
+
+// Allows for our ampersand element to have differing
+// font-family from the ampersand unicode font-family.
+$amp-font-family: Verdana, sans-serif !default;
+
+@font-face {
+	font-family: '#{$amp-fontface-name}';
+	src: $amp-fontface-source;
+	unicode-range: U+0026;
+}
+
+// Ampersand fallback font for unicode range
+@font-face {
+	font-family: '#{$amp-fontface-name}';
+	src: $amp-fontface-fallback;
+	unicode-range: U+270C;
+}
+
+@mixin ampersand($amp-font-family...) {
+	font-family: $amp-font-family;
+}
+
+%ampersand-placeholder {
+	@include ampersand($amp-fontface-name, $amp-font-family);
+}
+
+.ampersand {
+    @extend %ampersand-placeholder;
+}
+
