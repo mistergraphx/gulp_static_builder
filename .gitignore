@@ -18,4 +18,5 @@ _EXTENSIONS/*
 !_FRAMEWORKS/bower.json
 _FRAMEWORKS/*
 
+_templates/
 _JS_LIBS/
