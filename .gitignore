@@ -9,14 +9,22 @@ package-lock.json
 build/
 
 PROJECTS/*
+!PROJECTS/README.md
 
+_EXTENSIONS/*
 !_EXTENSIONS/.bowerrc
 !_EXTENSIONS/bower.json
-_EXTENSIONS/*
+!_EXTENSIONS/README.md
 
+_JS_LIBS/*
+!_JS_LIBS/.bowerrc
+!_JS_LIBS/bower.json
+!_JS_LIBS/README.md
+
+_FRAMEWORKS/*
 !_FRAMEWORKS/.bowerrc
 !_FRAMEWORKS/bower.json
-_FRAMEWORKS/*
+!_FRAMEWORKS/README.md
 
-_templates/
-_JS_LIBS/
+_templates/*
+!_templates/README.md

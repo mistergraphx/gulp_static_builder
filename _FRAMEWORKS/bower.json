@@ -1,0 +1,11 @@
+{
+    "name": "frameworks",
+    "dependencies": {
+        "bootstrap-sass": "latest",
+        "foundation-sites": "latest",
+        "normalize-css": "latest",
+        "bourbon":"bourbon#v5.0.0.beta.8",
+        "susy": "~2.2.2",
+        "include-media":"latest"
+	}
+}

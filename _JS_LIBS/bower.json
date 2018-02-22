@@ -1,0 +1,23 @@
+{
+    "name": "gx_libs",
+    "dependencies": {
+        "html5shiv": "latest",
+		"jquery.ui": "latest",
+		"fastclick": "latest",
+		"lightbox2": "latest",
+		"fixie": "https://github.com/mistergraphx/fixie.git",
+		"timelines": "https://github.com/mistergraphx/vertical-timeline.git",
+		"rangeslider.js": "latest",
+		"jquery-waypoints": "latest",
+		"picturefill": "latest",
+		"appear": "latest",
+		"jquery.localScroll": "latest",
+		"jquery.scrollTo": "latest",
+		"jquery-form": "latest",
+		"owl.carousel": "^2.1.6",
+		"slabText": "latest",
+		"sequencejs": "latest",
+		"jquery-validation": "latest",
+		"lazysizes": "^3.0.0"
+	}
+}
