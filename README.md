@@ -22,7 +22,7 @@ La structure de l'applicatif est construite sur l'arborescence du système de fi
 	- pages
 	- post : non inplémenté
 	- templates
-	
+
 ## Héritage et surcharges
 
 ## DATA externes et Frontmatter
@@ -59,27 +59,27 @@ Config
 Template Engine:
 
 - précedence des templates situés dans le dossier /templates de l'app,
-puis dans les autre path fournis dans la config
+puis dans les autres path fournis dans la config
 
 - 	inclusion au html généré des ressources svg
 	https://www.npmjs.com/package/gulp-inject-svg
 
 Bundle :
-- ajouter la copy des images relatives au contents
+@todo - ajouter la copy des images relatives au contents
 
 Default/Generate :
-- [X] rendre dans le markdown les data du frontmater, et extra
+@todo - [X] rendre dans le markdown les data du frontmater, et extra
 
 Fonctionalitées
 - 	Ajouter un moteur de recherche sur les contenus statiques
 	Tipue : jqueryPlugin permettant la recherche sur un json
 	http://www.tipue.com/search/docs/?d=6
-	
+
 - 	Envoi/synchro des fichiers (FTP/SSH)
 	https://blueprintinteractive.com/blog/how-sync-local-and-server-development-gulp
-	
+
 - Medias
-	
+
 	- Optimisation des images : https://scaley.io/
 		2,000 image transformations per month
 		service d'optimisation des visuel

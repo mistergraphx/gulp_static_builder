@@ -1,4 +1,4 @@
-/*
+/* # Static Builder
 
 ## Node
 
@@ -43,7 +43,11 @@ https://gist.github.com/kerryhatcher/1382950af52f3082ecdc668bba5aa11b
         http://putaindecode.io/fr/articles/ci/travis-ci/
         Exemple de génération de site static et edition/publication sur Github Pages
         http://blog.crushingpennies.com/a-static-site-generator-with-gulp-proseio-and-travis-ci.html
-        
+
+
+@todo - html min - compression du html
+@todo - imagemin/image_resize - optimisation des images client auto
+
 */
 
 var gulp = require('gulp');
@@ -108,7 +112,7 @@ var rename = require("gulp-rename");
 var spy = require("through2-spy");
 var assignIn = require('lodash.assignin');
 
-// Node 
+// Node
 // https://nodejs.org/docs/latest/api/path.html#path_path_basename_path_ext
 var path = require('path');
 // https://nodejs.org/docs/latest/api/fs.html
@@ -147,7 +151,7 @@ var _config = require('./_config-default');
 /** # Project Loader
 
 Chargement du fichier de config passé en argument de la commande.
-    
+
 `gulp task --project=project_name`
 
 @requires       minimist
@@ -165,20 +169,20 @@ var config = assignIn(_config, project);
 var appConfig = getJSONDataFile(config.dataDir + 'app.json');
 
 //gulp.task('config', function(){
-//    
+//
 //    return console.log(config);
-//    
+//
 //});
 //
 
 /* Nunjuks loader
- 
+
  On cree un loader pour l'héritages des templates
  soit relatif au premier niveau du template demandé
  et non a la racine du projet
- 
+
  https://mozilla.github.io/nunjucks/fr/api.html#filesystemloader
- 
+
 FileSystemLoader([searchPaths], [opts])
 */
 var loader = new nunjucks.FileSystemLoader(config.nunjuks.searchPaths);
@@ -192,10 +196,10 @@ function getJSONDataFile(filePath){
 
 function loadExtraData(dataFiles){
     //
-    
+
 }
 
-/* Building an index of elements : pages,post 
+/* Building an index of elements : pages,post
 
 Ré-écris les url pour quelles soitent relatives a la racine du site static et non au projet
 
@@ -215,27 +219,27 @@ function buildIndex(baseDir, objectType){
     var counter = 0 ;
     files = fsRecurs(baseDir);
     files.map(function(url,ind,arr){
-        
+
         //current = fs.readFileSync(pageDir + url, 'utf-8')
-        
+
         file = matter.read(baseDir + url);
-        
-        
+
+
         //url =  path.dirname(file.path).replace(config.pageDir, '') + path.basename(file.path,'.md') + '.html';
-        // slice enlève le dernier / présent dans 
+        // slice enlève le dernier / présent dans
         url = path.dirname(file.path).replace(baseDir.slice(0,-1), '') + '/'+ path.basename(file.path,'.md') + '.html';
         //console.log(url);
-       
+
        summaryJSON[objectType + '-' + counter] = {
             'path': file.path,
             'url': url,
             'title': file.data.title,
             'description': file.data.description
         };
-        
+
         counter++;
     });
-    
+
     return  summaryJSON;
 }
 
@@ -257,23 +261,23 @@ gulp.task('test', function(){
             // attention on attrape pour tout les fichiers du meme nom meme dans toute l'arbo
             if(fs.existsSync(config.dataDir + path.basename(file.path,'.md') + '.json'))
                 data.xtra = JSON.parse(fs.readFileSync(config.dataDir + path.basename(file.path,'.md') + '.json'));
-                
+
             else
                 console.log('No Json file found for :' + file.path);
-            
-            // Extract/split file datas  extrac content|frontmatter 
+
+            // Extract/split file datas  extrac content|frontmatter
             var fileData = matter.read(file.path);
             // merge xtra + frontmatter
             data.frontmater = assignIn(fileData.data, data.xtra);
-            
+
             // Nunjuk.config pour les partials utilisées dans le content
             var env = nunjucks.configure(config.templateDir);
-            
+
             // On applique le rendu nunjuk (data , partials)
-            // au content et on traite le markdown 
+            // au content et on traite le markdown
             data.content = md(env.renderString(String(fileData.content),data.frontmater));
-            
-            
+
+
             console.log(data.content);
             return data;
         }))
@@ -281,7 +285,7 @@ gulp.task('test', function(){
         .pipe(spy.obj(function(file) {
             console.log(file.data);
         }));
-    
+
 });
 // Nunjuk.config pour les partials utilisées dans le content
 // var templateEngine = nunjucks.configure(config.templateDir);
@@ -296,49 +300,49 @@ gulp.task('generate', function () {
             }
             // Y'a t'il un fichier json de datas supplémentaires a fournir
             if(fs.existsSync(config.dataDir + path.basename(file.path,'.md') + '.json')) {
-                data.datas = JSON.parse(fs.readFileSync(config.dataDir + path.basename(file.path,'.md') + '.json'));   
+                data.datas = JSON.parse(fs.readFileSync(config.dataDir + path.basename(file.path,'.md') + '.json'));
             }
             else {
                 data.datas = null;
                 console.log('No Json file found for :' + file.path);
             }
             // injecter les settings/datas disponibles ensuites dans les templates
-            // assets, locals, 
+            // assets, locals,
             data = assignIn(data, {
                 assets: getJSONDataFile(config.dataDir + config.bundleResults.fileName + '.json'),
                 app : getJSONDataFile(config.dataDir + 'app.json'),
                 summary: buildIndex(config.pageDir,'page')
             });
             // On extrait et sépare entete/contenu
-            // Extract/split file datas  extrac content|frontmatter 
+            // Extract/split file datas  extrac content|frontmatter
             var frontmatter = matter.read(file.path);
-            
-   
+
+
             // Les datas du frontmatter doivent être au accessible
             // au premier niveau de file.data pour être correctements utilisées par gulp-wrap, gulp-nav
             // et être propogée dans l'héritage de templates
             data = assignIn(data,frontmatter.data);
             // merge xtra + frontmatter
             //data = assignIn(data.environement, frontmatter.data);
-            
-            
+
+
             // Nunjuk.config pour les partials utilisées dans le content
             nunjucks.configure(config.templateDir);
             var compile = new nunjucks.Environment();
-            
+
             // On traite les data avec nunjuks.renderString
             // On applique le rendu nunjuk (data , partials) au content
             // on utilise gulp-wrap on met a jour file.content
             file.contents = new Buffer(compile.renderString(frontmatter.content.toString(), data));
-            
+
             marked.setOptions({
                 highlight: function (code) {
                     return require('highlight.js').highlightAuto(code).value;
                 }
             });
-            
+
             marked(file.contents.toString(), config.markedConfig, function(err,data){
-            
+
                 file.contents = new Buffer(data);
             });
 
@@ -350,21 +354,21 @@ gulp.task('generate', function () {
         }))
         // Navigation construct
         .pipe(nav())
-        // wrap 
+        // wrap
         .pipe(wrap(function(data) {
                         if(fs.existsSync(config.nunjuks.defaultTemplateDir + data.layout + config.nunjuks.templateExt)) {
                             var template = fs.readFileSync(config.nunjuks.defaultTemplateDir + data.layout + config.nunjuks.templateExt).toString();
-                        
-                        
+
+
                             return template;
                         }else {
                             return fs.readFileSync(config.nunjuks.defaultTemplateDir + 'page' + config.nunjuks.templateExt).toString();
                         }
-                        
+
                     },
                     function(file){
                         //file.data = assignIn(file.data,{
-                        //    navigation: file.data.nav                            
+                        //    navigation: file.data.nav
                         //});
                         //console.log(file.data);
                         return file.data;
@@ -424,10 +428,10 @@ gulp.task('default',['styles','bundle','generate','sitemap'],function(){
     browserSync.init({
         server: config.buildDir
     });
-    
+
     gulp.watch(config.scssDir + '**/*.scss',['styles']);
     gulp.watch(config.basePath +'**/*.{json,twig,md}',['generate','sitemap']);
     gulp.watch(config.basePath + 'theme.js',['bundle']);
     gulp.watch(config.assetsPath + '**/*.{css,js}',['bundle']);
-    
+
 });
