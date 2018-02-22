@@ -8,7 +8,7 @@ package-lock.json
 *.css.map
 build/
 
-PROJECTS/**
+PROJECTS/*
 
 !_EXTENSIONS/.bowerrc
 !_EXTENSIONS/bower.json
