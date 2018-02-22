@@ -211,19 +211,16 @@ https://github.com/Bushwazi/static-site-generation-with-jade-gulp/blob/master/_s
 
 */
 var fsRecurs = require('fs-readdir-recursive');
-
 var util = require('util');
+
 var summaryJSON = {} ;
 
 function buildIndex(baseDir, objectType){
     var counter = 0 ;
     files = fsRecurs(baseDir);
     files.map(function(url,ind,arr){
-
         //current = fs.readFileSync(pageDir + url, 'utf-8')
-
         file = matter.read(baseDir + url);
-
 
         //url =  path.dirname(file.path).replace(config.pageDir, '') + path.basename(file.path,'.md') + '.html';
         // slice enlève le dernier / présent dans
@@ -244,8 +241,6 @@ function buildIndex(baseDir, objectType){
 }
 
 // Info and function in a VinylStream : https://www.npmjs.com/package/gulp-tap/
-
-
 gulp.task('test', function(){
     return gulp.src('src/pages/**/*.md')
         .pipe(data(function(file){
@@ -342,7 +337,6 @@ gulp.task('generate', function () {
             });
 
             marked(file.contents.toString(), config.markedConfig, function(err,data){
-
                 file.contents = new Buffer(data);
             });
 
@@ -358,13 +352,10 @@ gulp.task('generate', function () {
         .pipe(wrap(function(data) {
                         if(fs.existsSync(config.nunjuks.defaultTemplateDir + data.layout + config.nunjuks.templateExt)) {
                             var template = fs.readFileSync(config.nunjuks.defaultTemplateDir + data.layout + config.nunjuks.templateExt).toString();
-
-
                             return template;
                         }else {
                             return fs.readFileSync(config.nunjuks.defaultTemplateDir + 'page' + config.nunjuks.templateExt).toString();
                         }
-
                     },
                     function(file){
                         //file.data = assignIn(file.data,{
@@ -394,11 +385,11 @@ gulp.task('styles', function(){
         //.pipe(autoprefixer(config.autoprefixer))
         //.pipe(mergeMediaQueries(config.mergeMediaQueries))
         .pipe(sourcemaps.write('./', {
-				//includeContent: false,
-				sourceRoot: '../../../assets/_scss',
-				destPath: config.buildDir + config.bundleResults.pathPrefix ,
-				//sourceMappingURLprefix: project.bundleConfig.dest + 'assets/css'
-			}))
+  				//includeContent: false,
+  				sourceRoot: '../../../assets/_scss',
+  				destPath: config.buildDir + config.bundleResults.pathPrefix ,
+  				//sourceMappingURLprefix: project.bundleConfig.dest + 'assets/css'
+			  }))
     .pipe(gulp.dest(config.cssDir))
     .pipe(reload({ stream: true }));
 });
