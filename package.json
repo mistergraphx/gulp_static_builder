@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arnaud Bérard (Mist. GraphX)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "fs-readdir-recursive": "^1.0.0",
     "gulp-plumber": "^1.1.0",
