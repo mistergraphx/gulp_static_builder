@@ -60,6 +60,9 @@ var plumber = require('gulp-plumber');
 // https://www.npmjs.com/package/nunjucks
 // https://mozilla.github.io/nunjucks/
 var nunjucks = require('nunjucks');
+// Html minification
+// https://www.npmjs.com/package/gulp-htmlmin
+var htmlmin = require('gulp-htmlmin');
 
 // https://www.npmjs.com/package/gulp-data
 var data = require('gulp-data');
@@ -111,6 +114,7 @@ var sitemap = require('gulp-sitemap');
 var rename = require("gulp-rename");
 var spy = require("through2-spy");
 var assignIn = require('lodash.assignin');
+var _if = require('gulp-if');
 
 // Node
 // https://nodejs.org/docs/latest/api/path.html#path_path_basename_path_ext
@@ -134,19 +138,13 @@ init de la configuration globale par default
 chargement de la config du projet en cours
 surcharge de la configuration par defaut par celle du projet
 
-
-
 */
 
-// Dossier des projets
+// Base PROJECTS folder
 _PROJECTS_PATH = "./PROJECTS/";
 
-
-// Config
+// Default configuration
 var _config = require('./_config-default');
-
-
-
 
 /** # Project Loader
 
@@ -164,16 +162,18 @@ var project = require(_PROJECTS_PATH + argv.project + '/app.js');
 
 var config = assignIn(_config, project);
 
+function getEnv(config){
+  if(config.environement == 'production'){
+    return process.env.NODE_ENV = 'production';
+  }else {
+    return process.env.NODE_ENV = 'development';
+  }
+};
+
+
 // App config
 // necessaire pour la sitemap générée
 var appConfig = getJSONDataFile(config.dataDir + 'app.json');
-
-//gulp.task('config', function(){
-//
-//    return console.log(config);
-//
-//});
-//
 
 /* Nunjuks loader
 
@@ -192,11 +192,6 @@ function getJSONDataFile(filePath){
         return JSON.parse(fs.readFileSync(filePath));
     else
         console.log('No file found for :' + filePath);
-}
-
-function loadExtraData(dataFiles){
-    //
-
 }
 
 /* Building an index of elements : pages,post
@@ -240,7 +235,12 @@ function buildIndex(baseDir, objectType){
     return  summaryJSON;
 }
 
+gulp.task('set-env', function(){
+   return console.log('Environement = ' + getEnv(config));
+});
+
 // Info and function in a VinylStream : https://www.npmjs.com/package/gulp-tap/
+// UnUsed : debug and test only
 gulp.task('test', function(){
     return gulp.src('src/pages/**/*.md')
         .pipe(data(function(file){
@@ -313,13 +313,12 @@ gulp.task('generate', function () {
             var frontmatter = matter.read(file.path);
 
 
-            // Les datas du frontmatter doivent être au accessible
+            // Les datas du frontmatter doivent êtres accessibles
             // au premier niveau de file.data pour être correctements utilisées par gulp-wrap, gulp-nav
-            // et être propogée dans l'héritage de templates
+            // et être propagées dans l'héritage des templates
             data = assignIn(data,frontmatter.data);
             // merge xtra + frontmatter
-            //data = assignIn(data.environement, frontmatter.data);
-
+            // data = assignIn(data.environement, frontmatter.data);
 
             // Nunjuk.config pour les partials utilisées dans le content
             nunjucks.configure(config.templateDir);
@@ -327,7 +326,7 @@ gulp.task('generate', function () {
 
             // On traite les data avec nunjuks.renderString
             // On applique le rendu nunjuk (data , partials) au content
-            // on utilise gulp-wrap on met a jour file.content
+            // on utilise gulp-wrap pour mettre a jour file.content
             file.contents = new Buffer(compile.renderString(frontmatter.content.toString(), data));
 
             marked.setOptions({
@@ -372,6 +371,14 @@ gulp.task('generate', function () {
         .pipe(rename({
             extname: ".html"
         }))
+        .pipe(_if(function(){
+            if(getEnv(config) == 'production')
+              return true;
+          },htmlmin({
+            // https://github.com/kangax/html-minifier
+            collapseWhitespace: true
+          })
+        ))
     .pipe(gulp.dest(config.buildDir))
     .on('end', reload);
 });
